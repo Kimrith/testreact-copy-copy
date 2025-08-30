@@ -3,6 +3,11 @@ import React from "react";
 export default function Card({ thumbnail, price, title, rating }) {
   const click = () => {
     alert(title);
+    const product = { thumbnail, price, title, rating };
+    // Example: save to localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   return (
